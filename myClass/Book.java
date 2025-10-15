@@ -4,7 +4,7 @@ package myClass;
  * Book 클래스의 설명을 작성하세요.
  *
  * @author (2021320032 임기홍)
- * @version (버전 번호 또는 작성한 날짜)
+ * @version (2025/10/15)
  */
 public class Book extends DB_Element
 {
@@ -16,8 +16,14 @@ public class Book extends DB_Element
 
     /**
      * Book 클래스의 객체 생성자
+     * 
+     * @param auther 책의 저자
+     * @param bookID 책의 고유 넘버
+     * @param publisher 책의 출판사
+     * @param title 책의 제목
+     * @param year 책의 출판년도
      */
-    public Book(String auther, String bookId, String publisher,
+    public Book(String auther, String bookID, String publisher,
     String title, int year)
     {
         this.auther = auther;
@@ -27,21 +33,23 @@ public class Book extends DB_Element
         this.year = year;
     }
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * Book 객채의 고유 넘버를 반환하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     * @param    없음
+     * @return   bookID 값을 반환
      */
+    @Override
     public String getID()
     {
         return this.bookID;
     }
     /**
-     * 예제 메소드 - 이 주석을 사용자에 맞게 바꾸십시오
+     * Book 객체의 정보를 String 타입으로 return하는 메소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 더하기 y의 결과값을 반환
+     * @param    없음
+     * @return   문제지 결과화면의 양식에 맞춰 저장된 책 정보를 반환
      */
+    @Override
     public String toString()
     {
         return "(" + bookID + ")" + title + "," 
