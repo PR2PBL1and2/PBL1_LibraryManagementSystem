@@ -13,9 +13,9 @@ import DataBase.*;
 public class LibraryManagementSystem
 {
     // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
-    LibDB<Book> bookDB = new LibDB<Book>(); 
-    LibDB<User> userDB = new LibDB<User>();
-    HashMap<User,Book> loanDB = new HashMap<User, Book>();
+    LibDB<Book> bookDB; 
+    LibDB<User> userDB;
+    HashMap<User,Book> loanDB;
 
     // 클래스의 생성자, 3개의 데이터베이스를 생성한다
     public LibraryManagementSystem()
@@ -33,13 +33,7 @@ public class LibraryManagementSystem
     
     // 책 DB, 이용자 DB를 매개변수로 전달 받고 데이터베이스에 저장된 모든 요소를 출력하는 메소드
     public <T extends DB_Element> void printDB(LibDB<T> db){
-        if() {  // @printAllElement()의 범위가 어디까지 인지 모르니까 일단 보류
-            System.out.println("----- 이용자 목록 출력 -----");
-            db.printAllElement();
-        } else {
-            System.out.println("----- 책 목록 출력 -----");
-            db.printAllElement();
-        }
+        db.printAllElements();
     }
     
     // 대출 DB에 저장되어 있는 정보를 출력하는 메서드(iterator 사용)
@@ -53,7 +47,8 @@ public class LibraryManagementSystem
             FileReader input_stream = new FileReader(bookFile);
             Scanner scanner = new Scanner(input_stream);
             
-            while (scanner.hasNext()) {
+            Iterator<String> it = scanner;
+            while (it.hasNext()) {
                 String line = scanner.nextLine();  // 텍스트 파일의 줄별로 line에 임시저장
                 StringTokenizer st = new StringTokenizer(line, "/");  // line에 임시 저장한 줄에서 / 기준으로 나눔
                                     
@@ -74,7 +69,7 @@ public class LibraryManagementSystem
         } catch (IOException e) {
             System.out.println("입출력 오류");
         }
-        // return bookDB;  // 추가된 데이터베이스를 리턴
+        return bookDB;  // 추가된 데이터베이스를 리턴
     }
     
     // 이용자의 정보가 저장된 파일 경로를 매개변수로 전달 받아, 이용자 객체를 생성, 책DB에 저장하는 메서드
@@ -83,7 +78,8 @@ public class LibraryManagementSystem
             FileReader input_stream = new FileReader(userFile);
             Scanner scanner = new Scanner(input_stream);
             
-            while (scanner.hasNext()) {
+            Iterator<String> it = scanner;
+            while (it.hasNext()) {
                 String line = scanner.nextLine();  // 텍스트 파일의 줄별로 line에 임시저장
                 StringTokenizer st = new StringTokenizer(line, "/");  // line에 임시 저장한 줄에서 / 기준으로 나눔
                                    
@@ -101,6 +97,6 @@ public class LibraryManagementSystem
         } catch (IOException e) {
             System.out.println("입출력 오류");
         }
-        // return userDB;  // 추가된 데이터베이스를 리턴
+        return userDB;  // 추가된 데이터베이스를 리턴
     }
 }
