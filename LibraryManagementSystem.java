@@ -28,17 +28,25 @@ public class LibraryManagementSystem
     // userID, bookID를 매개변수로 가져와 대출 작업을 수행하는 메서드
     // 이용자 DB에서 이용자를 찾고, 책 DB에서 책을 찾아, 대출 DB에 저장하는 역할을 수행
     public void borrowBook(String userID, String bookID){
-        
+        User user = userDB.findElement(userID);
+        Book book = bookDB.findElement(bookID);
+        loanDB.put(user, book);
     }
     
     // 책 DB, 이용자 DB를 매개변수로 전달 받고 데이터베이스에 저장된 모든 요소를 출력하는 메소드
-    public <T extends DB_Element> void printDB(LibDB<T> db){
+    public static <T extends DB_Element> void printDB(LibDB<T> db){
         db.printAllElements();
     }
     
     // 대출 DB에 저장되어 있는 정보를 출력하는 메서드(iterator 사용)
     public void printLoanList(){
-        
+        Set<User> userset = loanDB.keySet();
+        Iterator<User> it = userset.iterator();
+        while(it.hasNext()){
+            User user = it.next();
+            Book book = loanDB.get(user);
+            System.out.println(user + " ===> " + book);
+        }
     }
     
     // 책의 정보가 저장된 파일 경로를 매개변수로 전달 받아, 책 객체를 생성, 책DB에 저장하는 메서드

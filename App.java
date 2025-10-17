@@ -11,28 +11,30 @@ import DataBase.*;
 public class App
 {
     public static void main(String[] args){
-        
+        // 1
         LibraryManagementSystem lbSystem = new LibraryManagementSystem();
         
-        // 이용자 명단을 데이터베이스에 등록, 출력
+        // 2
         lbSystem.setUserDB("C:\\Temp\\UserData2025.txt");
         
-        
+        // 3
         System.out.println("----- 이용자 목록 출력 -----");
         lbSystem.printDB(lbSystem.userDB);
         
-        // 수장자료 명단을 데이터베이스에 등록, 출력
+        // 4
         lbSystem.setBookDB("C:\\Temp\\BookData2025.txt");
         
+        // 5
         System.out.println("----- 책 목록 출력 -----");
         lbSystem.printDB(lbSystem.bookDB);
         
-        // 대출작업 3건 수행
+        // 6
+        lbSystem.borrowBook("2023320003", "B04");
         lbSystem.borrowBook("2025320001", "B02");
         lbSystem.borrowBook("2024320002", "B03");
-        lbSystem.borrowBook("2023320003", "B04");
         
-        // 대출현황 출력
+        // 7
+        System.out.println("----- 대출 현황 -----");
         lbSystem.printLoanList();
     }
 }
