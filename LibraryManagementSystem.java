@@ -20,7 +20,7 @@ public class LibraryManagementSystem
     /**
      * LibraryManagementSystem 생성자
      * 
-     * 생성자 클래스로 객체의 필드값을 설정 192p, 컬랙션 선언 404p
+     * 생성자 클래스로 객체의 필드값을 설정, 컬랙션 선언
      * 
      * @param bookDB 책 데이터베이스
      * @param userDB 이용자 데이터베이스
@@ -38,7 +38,6 @@ public class LibraryManagementSystem
     /**
      * 이용자ID와 책ID를 찾아, 대출 DB에 저장하는 역할을 수행하는 메소드
      * 
-     * HashMap 컬랙션에 요소를 삽입 425p, 메소드 호출 185p
      * 
      * @param     userID 이용자의 ID
      * @param     bookID 책의 ID
@@ -68,9 +67,6 @@ public class LibraryManagementSystem
     /**
      * 대출 데이터베이스에 저장되어 있는 대출정보들을 출력하는 메서드
      * 
-     * 해시맵의 모든 키를 담은 Set<User> userset 컬랙션 리턴 425p, 순차 검색할 Iterator 객체 얻기 422p
-     * it.hasNext()로 userset의 끝까지 반복 422p, it.next()로 userset 컬랙션의 key 삽입 422p
-     * loanDB.get(user) 메소드로 loanDB 해시맵의 value 삽입 425p
      * 
      * @param     없음
      * @return    없음
@@ -88,7 +84,8 @@ public class LibraryManagementSystem
     
 
     /**
-     * 책의 정보가 저장된 파일 경로를 매개변수로 전달 받아, 책 객체를 생성, 책DB에 저장하는 메서드
+     * 책의 정보가 저장된 파일 경로를 매개변수로 전달 받아 
+     * 책 객체를 생성, 책DB에 저장하는 메서드
      *
      * @param     bookFile 책의 정보가 저장된 파일 경로
      * @return    bookDB   책 데이터베이스
@@ -125,7 +122,8 @@ public class LibraryManagementSystem
     
 
     /**
-     * 이용자의 정보가 저장된 파일 경로를 매개변수로 전달 받아, 이용자 객체를 생성, 책DB에 저장하는 메서드
+     * 이용자의 정보가 저장된 파일 경로를 매개변수로 전달 받아
+     * 이용자 객체를 생성, 책DB에 저장하는 메서드
      *
      * @param     userFile 이용자의 정보가 저장된 파일 경로
      * @return    userDB   이용자 데이터베이스
