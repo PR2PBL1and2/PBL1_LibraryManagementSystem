@@ -5,40 +5,47 @@ import DataBase.*;
 
 
 /**
- * LibraryManagementSystem 클래스의 설명을 작성하세요.
- *
+ * 이용자, 책, 대출 데이터베이스를 생성하고 관리하는 클래스
+ * 대출 작업을 수행하고, 데이터베이스에 객체를 추가, 출력하는 기능을 갖췄다.
+ * 
  * @author (202232032_정윤성)
- * @version (2025.10.16)
+ * @version (2025.10.17)
  */
 public class LibraryManagementSystem
 {
-    // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
+    // 도서관 관리 시스템의 속성 3개 선언
+    // 클래스의 속성 3개 선언 184p, 컬랙션 선언 404p
     LibDB<Book> bookDB; 
     LibDB<User> userDB;
     HashMap<User,Book> loanDB;
 
-    // 클래스의 생성자, 3개의 데이터베이스를 생성한다
+    // 클래스의 생성자, 3개의 데이터베이스를 생성
     public LibraryManagementSystem()
     {
+        // 생성자 클래스로 객체의 필드값을 설정 192p, 컬랙션 선언 404p
         bookDB = new LibDB<Book>();
         userDB = new LibDB<User>();
         loanDB = new HashMap<User, Book>();
     }
 
-    // userID, bookID를 매개변수로 가져와 대출 작업을 수행하는 메서드
-    // 이용자 DB에서 이용자를 찾고, 책 DB에서 책을 찾아, 대출 DB에 저장하는 역할을 수행
+    // 이용자ID와 찾고, 책ID를 찾아, 대출 DB에 저장하는 역할을 수행
+    // HashMap 컬랙션에 요소를 삽입 425p, 메소드 호출 185p
     public void borrowBook(String userID, String bookID){
         User user = userDB.findElement(userID);
         Book book = bookDB.findElement(bookID);
         loanDB.put(user, book);
     }
     
-    // 책 DB, 이용자 DB를 매개변수로 전달 받고 데이터베이스에 저장된 모든 요소를 출력하는 메소드
+    // 데이터베이스에 저장된 모든 속성를 출력하는 메소드
+    // 제네릭 메소드 구현 440p
     public static <T extends DB_Element> void printDB(LibDB<T> db){
         db.printAllElements();
     }
     
-    // 대출 DB에 저장되어 있는 정보를 출력하는 메서드(iterator 사용)
+    // 대출 데이터베이스에 저장되어 있는 대출정보들을 출력하는 메서드
+    // 해시맵의 모든 키를 담은 Set<User> userset 컬랙션 리턴 425p, 순차 검색할 Iterator 객체 얻기 422p
+    // it.hasNext()로 userset의 끝까지 반복 422p, it.next()로 userset 컬랙션의 key 삽입 422p
+    // loanDB.get(user) 메소드로 loanDB 해시맵의 value 삽입 425p
     public void printLoanList(){
         Set<User> userset = loanDB.keySet();
         Iterator<User> it = userset.iterator();
@@ -57,8 +64,8 @@ public class LibraryManagementSystem
             
             Iterator<String> it = scanner;
             while (it.hasNext()) {
-                String line = scanner.nextLine();  // 텍스트 파일의 줄별로 line에 임시저장
-                StringTokenizer st = new StringTokenizer(line, "/");  // line에 임시 저장한 줄에서 / 기준으로 나눔
+                String line = scanner.nextLine(); 
+                StringTokenizer st = new StringTokenizer(line, "/");
                                     
                 String bookID = st.nextToken();
                 String title = st.nextToken();
@@ -66,18 +73,18 @@ public class LibraryManagementSystem
                 String publisher = st.nextToken();
                 int year = Integer.parseInt(st.nextToken());
                     
-                Book book = new Book(auther, bookID, publisher, title, year);   // book 객체 생성 및 저장 
-                bookDB.addElement(book);  // book 객체를 DB에 등록
+                Book book = new Book(auther, bookID, publisher, title, year);
+                bookDB.addElement(book); 
                 
             }
-            scanner.close();   // 스캐너 종료
-            input_stream.close();  // 파일리더 종료
+            scanner.close(); 
+            input_stream.close();  
             
             
         } catch (IOException e) {
             System.out.println("입출력 오류");
         }
-        return bookDB;  // 추가된 데이터베이스를 리턴
+        return bookDB; 
     }
     
     // 이용자의 정보가 저장된 파일 경로를 매개변수로 전달 받아, 이용자 객체를 생성, 책DB에 저장하는 메서드
@@ -88,23 +95,23 @@ public class LibraryManagementSystem
             
             Iterator<String> it = scanner;
             while (it.hasNext()) {
-                String line = scanner.nextLine();  // 텍스트 파일의 줄별로 line에 임시저장
-                StringTokenizer st = new StringTokenizer(line, "/");  // line에 임시 저장한 줄에서 / 기준으로 나눔
+                String line = scanner.nextLine();  
+                StringTokenizer st = new StringTokenizer(line, "/");  
                                    
-                Integer stID = Integer.valueOf(st.nextToken()); // 첫번째 st.nextToken() 즉 "202532001" 이러한 문자열을 stID에 Integer 타입으로 저장
-                String name = st.nextToken(); // 첫번째 st.nextToken() 즉 "KIM" 이러한 문자열을 name에 String 타입으로 저장
+                Integer stID = Integer.valueOf(st.nextToken()); 
+                String name = st.nextToken(); 
                     
-                User user = new User(name, stID);   // user 객체 생성 및 저장 
-                userDB.addElement(user);  // user 객체를 DB에 등록
+                User user = new User(name, stID);    
+                userDB.addElement(user);  
                 
             }
-            scanner.close();   // 스캐너 종료
-            input_stream.close();  // 파일리더 종료
+            scanner.close(); 
+            input_stream.close(); 
             
             
         } catch (IOException e) {
             System.out.println("입출력 오류");
         }
-        return userDB;  // 추가된 데이터베이스를 리턴
+        return userDB; 
     }
 }
