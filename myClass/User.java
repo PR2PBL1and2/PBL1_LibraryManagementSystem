@@ -23,6 +23,7 @@ public class User extends DB_Element
         this.name = name;
         this.stID = stID;
     }
+    
     /**
      * User 객채의 학번을 반환하는 메소드
      *
@@ -34,6 +35,7 @@ public class User extends DB_Element
     {
         return Integer.toString(stID);
     }
+    
     /**
      * User 객체의 정보를 String 타입으로 return하는 메소드
      *
