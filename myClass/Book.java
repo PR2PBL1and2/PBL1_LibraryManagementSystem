@@ -1,8 +1,9 @@
 package myClass;
 
 /**
- * Book 클래스의 설명을 작성하세요.
- *
+ * 책의 정보를 나타내는 클래스
+ * DB_Element를 상속받는 서브클래스이다.
+ * 
  * @author (2021320032 임기홍)
  * @version (2025/10/15)
  */
@@ -32,8 +33,9 @@ public class Book extends DB_Element
         this.title = title;
         this.year = year;
     }
+    
     /**
-     * Book 객채의 고유 넘버를 반환하는 메소드
+     * Book 객체의 고유 넘버를 반환하는 메소드
      *
      * @param    없음
      * @return   bookID 값을 반환
@@ -43,6 +45,7 @@ public class Book extends DB_Element
     {
         return this.bookID;
     }
+    
     /**
      * Book 객체의 정보를 String 타입으로 return하는 메소드
      *
