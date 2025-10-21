@@ -37,7 +37,7 @@ public class Book extends DB_Element
     /**
      * Book 객체의 고유 넘버를 반환하는 메소드
      *
-     * @param    없음
+     *
      * @return   bookID 값을 반환
      */
     @Override
@@ -49,8 +49,8 @@ public class Book extends DB_Element
     /**
      * Book 객체의 정보를 String 타입으로 return하는 메소드
      *
-     * @param    없음
-     * @return   문제지 결과화면의 양식에 맞춰 저장된 책 정보를 반환
+     * 
+     * @return   문제지 결과화면의 양식에 맞춰 Book 객체를 문자열로 반환
      */
     @Override
     public String toString()
