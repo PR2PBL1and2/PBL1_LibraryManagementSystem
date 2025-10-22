@@ -34,9 +34,9 @@ public class App
         System.out.println("\n----- 책 목록 출력 -----");
         lms.printDB(lms.bookDB);
         
-        lms.borrowBook("2023320003", "B04");
         lms.borrowBook("2025320001", "B02");
         lms.borrowBook("2024320002", "B03");
+        lms.borrowBook("2023320003", "B04");
         
         System.out.println("\n----- 대출 현황 -----");
         lms.printLoanList();
