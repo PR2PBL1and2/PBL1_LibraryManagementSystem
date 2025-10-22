@@ -10,7 +10,7 @@ package myClass;
  */
 public class Book extends DB_Element
 {
-    private String auther;
+    private String author;
     private String bookID;
     private String publisher;
     private String title;
@@ -19,7 +19,7 @@ public class Book extends DB_Element
     /**
      * Book 클래스의 객체 생성자
      * 
-     * @param auther 책의 저자
+     * @param author 책의 저자
      * @param bookID 책의 고유 넘버
      * @param publisher 책의 출판사
      * @param title 책의 제목
@@ -28,7 +28,7 @@ public class Book extends DB_Element
     public Book(String auther, String bookID, String publisher,
     String title, int year)
     {
-        this.auther = auther;
+        this.author = author;
         this.bookID = bookID;
         this.publisher = publisher;
         this.title = title;
@@ -57,7 +57,7 @@ public class Book extends DB_Element
     public String toString()
     {
         return "(" + bookID + ")" + title + "," 
-        + auther + "," + publisher + "," + year;
+        + author + "," + publisher + "," + year;
         
     }
 }
