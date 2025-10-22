@@ -59,7 +59,7 @@ public class LibraryManagementSystem
      * 
      * 
      */
-    public static <T extends DB_Element> void printDB(LibDB<T> db){
+    public <T extends DB_Element> void printDB(LibDB<T> db){
         db.printAllElements();
     }
     
