@@ -51,10 +51,9 @@ public class LibDB<T extends DB_Element> {
     
     /**
      * 데이터베이스에 저장된 모든 요소를 출력하는 메소드
-     *
-     * @param 없음
-     * @return 없음 
      * 콘솔에 직접 출력
+     * 
+     * 
      */
     public void printAllElements() {
         for (T element : db) {

@@ -41,7 +41,7 @@ public class LibraryManagementSystem
      * 
      * @param     userID 이용자의 ID
      * @param     bookID 책의 ID
-     * @return    없음
+     * 
      */
     public void borrowBook(String userID, String bookID){
         User user = userDB.findElement(userID);
@@ -56,8 +56,8 @@ public class LibraryManagementSystem
      * 제네릭 메소드 구현 440p
      *
      * @param     db 이용자, 책의 데이터베이스
-     * @return    없음
-     * 콘솔에 직접 출력
+     * 
+     * 
      */
     public static <T extends DB_Element> void printDB(LibDB<T> db){
         db.printAllElements();
@@ -68,9 +68,8 @@ public class LibraryManagementSystem
      * 대출 데이터베이스에 저장되어 있는 대출정보들을 출력하는 메서드
      * 
      * 
-     * @param     없음
-     * @return    없음
-     * 콘솔에 직접 출력
+     * 
+     * 
      */
     public void printLoanList(){
         Set<User> userset = loanDB.keySet();

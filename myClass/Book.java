@@ -1,5 +1,6 @@
 package myClass;
 
+
 /**
  * 책의 정보를 나타내는 클래스
  * DB_Element를 상속받는 서브클래스이다.
