@@ -56,8 +56,8 @@ public class Book extends DB_Element
     @Override
     public String toString()
     {
-        return "(" + bookID + ")" + title + "," 
-        + author + "," + publisher + "," + year;
+        return "(" + bookID + ") " + title + ", " 
+        + author + ", " + publisher + ", " + year;
         
     }
 }
