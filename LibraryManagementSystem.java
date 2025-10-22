@@ -101,11 +101,11 @@ public class LibraryManagementSystem
                                     
                 String bookID = st.nextToken();
                 String title = st.nextToken();
-                String auther = st.nextToken();
+                String author = st.nextToken();
                 String publisher = st.nextToken();
                 int year = Integer.parseInt(st.nextToken());
                     
-                Book book = new Book(auther, bookID, publisher, title, year);
+                Book book = new Book(author, bookID, publisher, title, year);
                 bookDB.addElement(book); 
                 
             }

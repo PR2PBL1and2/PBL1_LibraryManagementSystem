@@ -25,7 +25,7 @@ public class Book extends DB_Element
      * @param title 책의 제목
      * @param year 책의 출판년도
      */
-    public Book(String auther, String bookID, String publisher,
+    public Book(String author, String bookID, String publisher,
     String title, int year)
     {
         this.author = author;
