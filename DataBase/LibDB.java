@@ -11,8 +11,7 @@ import myClass.DB_Element;
  * @version (2025/10/16)
  */
 public class LibDB<T extends DB_Element> {
-    // 데이터베이스 요소를 저장하는 ArrayList
-    // 7장 15번 
+    
     private ArrayList<T> db;
     
     /**
@@ -38,8 +37,8 @@ public class LibDB<T extends DB_Element> {
      * @param id 찾을 요소의 ID
      * @return 해당 ID의 요소, 없을 경우 null 
      */
-    //7장 10번
-    public T findElement(String id) {
+    public T findElement(String id){
+        
         Iterator<T> it = db.iterator();
         while (it.hasNext()) {
             T elem = it.next();
